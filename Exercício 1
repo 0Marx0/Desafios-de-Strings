@@ -1,0 +1,16 @@
+#include <stdio.h>
+
+int main(void)
+{
+  char frase[1000];
+  int i, tam, m=0, M=0;
+  gets(frase);
+  tam = strlen(frase);
+  for(i=0; i<tam; i++)
+  {
+    if((frase[i]>64) && (frase[i]<91)) M++;
+    if((frase[i]>96) && (frase[i]<123)) m++;
+  }
+  printf("m: %d\nM: %d", m, M);
+  return 0;
+}
