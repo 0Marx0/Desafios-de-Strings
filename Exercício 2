@@ -1,0 +1,36 @@
+#include <stdio.h>
+
+int main(void)
+{
+  char frase[1001], ascii[127];
+  int i, j, tam, asciicor[126], cont = 0;
+  gets(frase);
+  tam = strlen(frase);
+  for(i=0; i<126; i++)
+  {
+    ascii[i] = i;
+    asciicor[i] = 0;
+  }
+  for(i=0; i<tam; i++)
+  {
+    for(j=0; j<127; j++)
+    {
+       if(frase[i] == ascii[j])
+       {
+         asciicor[j] = asciicor[j]+1;
+         if((ascii[j]>90) && (ascii[j]<97)) cont++;
+         if((ascii[j]<65) || (ascii[j]>122)) cont++;
+       }
+    }
+  }
+  for(i=97; i<123; i++)
+  {
+    printf("%c - %d\n", ascii[i], asciicor[i]);
+  }
+  for(i=65; i<91; i++)
+  {
+    printf("%c - %d\n", ascii[i], asciicor[i]);
+  }
+  printf("? - %d", cont);
+  return 0;
+}
